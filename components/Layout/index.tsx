@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-  CssBaseline,
-  Toolbar,
-  Container,
-} from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/styles';
+import { CssBaseline } from '@material-ui/core';
+import { theme } from '../../lib/theme';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -11,13 +9,10 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <React.Fragment>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Toolbar />
-      <Container>
-        {children}
-      </Container>
-    </React.Fragment>
+      {children}
+    </ThemeProvider>
   );
 };
 

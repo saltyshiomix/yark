@@ -9,7 +9,7 @@ interface IndexPageProps {
 const IndexPage = (props: IndexPageProps) => {
   return (
     <Layout>
-      <Button>{props.message}</Button>
+      <Button color="primary">{props.message}</Button>
     </Layout>
   );
 };
