@@ -8,6 +8,8 @@ import { AppModule } from './app.module';
 
   await register(app);
 
+  app.useStaticAssets('public');
+
   app.listen(3000, async () => {
     console.log(`> Ready on http://localhost:3000`);
   });
