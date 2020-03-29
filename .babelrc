@@ -7,7 +7,7 @@
       "babel-plugin-transform-imports",
       {
         "@material-ui/core": {
-          "transform": "@material-ui/core/${member}",
+          "transform": "@material-ui/core/esm/${member}",
           "preventFullImport": true
         }
       }
