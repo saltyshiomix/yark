@@ -1,17 +1,22 @@
 import React from 'react';
-import { ThemeProvider } from '@material-ui/styles';
-import { CssBaseline } from '@material-ui/core';
-import { theme } from '../lib/theme';
+import {
+  CssBaseline,
+  Toolbar,
+  Container,
+} from '@material-ui/core';
 
 const App = (props: React.PropsWithChildren<any>) => {
   const { children, ...restProps } = props;
   const PageComponent = children;
 
   return (
-    <ThemeProvider theme={theme}>
+    <React.Fragment>
       <CssBaseline />
-      <PageComponent {...restProps} />
-    </ThemeProvider>
+      <Toolbar />
+      <Container>
+        <PageComponent {...restProps} />
+      </Container>
+    </React.Fragment>
   );
 };
 
