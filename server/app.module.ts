@@ -1,9 +1,36 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
+import {
+  Module,
+  NestModule,
+  MiddlewareConsumer,
+  RequestMethod,
+} from '@nestjs/common';
+import { LogicModule } from './logics/logic.module';
+import { RouteModule } from './routes/route.module';
+import {
+  RedirectIfAuthenticatedMiddleware,
+  RedirectIfNotAuthenticatedMiddleware,
+} from './logics/auth/middlewares';
 
 @Module({
-  controllers: [
-    AppController,
+  imports: [
+    LogicModule,
+    RouteModule,
   ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  public configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(RedirectIfAuthenticatedMiddleware)
+      .forRoutes({
+        path: 'login',
+        method: RequestMethod.GET,
+      });
+
+    consumer
+      .apply(RedirectIfNotAuthenticatedMiddleware)
+      .forRoutes({
+        path: '',
+        method: RequestMethod.GET,
+      });
+  }
+}

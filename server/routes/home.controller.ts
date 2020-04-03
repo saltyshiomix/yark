@@ -1,16 +1,16 @@
 import {
   Controller,
-  Get,
   Render,
+  Get,
 } from '@nestjs/common';
 
 @Controller()
-export class AppController {
+export class HomeController {
   @Get()
   @Render('index')
-  public showIndexPage() {
+  public showHome() {
     return {
-      message: 'Hello World',
+      message: 'You are now logged in!',
     };
   }
 }
