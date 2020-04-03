@@ -52,7 +52,7 @@ const IndexPage = (props: IndexPageProps) => {
         <Card className={classes.card}>
           <CardContent>
             <Typography variant="body1">
-              {props.message} :)
+              {props.message}
             </Typography>
             <br />
             <Button
