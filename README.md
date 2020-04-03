@@ -17,3 +17,5 @@ $ yarn prisma2 migrate up --experimental
 $ yarn seed
 $ yarn dev
 ```
+
+Enter `test@test.com` / `testpass`, and you will see `You are now logged in!`.
